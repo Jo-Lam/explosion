@@ -1,0 +1,206 @@
+{
+  "first_name": {
+    "jahn": {
+      "variants": {
+        "john": {
+          "frequency": 1,
+          "edit_distance": 1,
+          "low_similarity": true,
+          "mismatch_first4": true
+        },
+        "jon": {
+          "frequency": 1,
+          "edit_distance": 2,
+          "low_similarity": true,
+          "mismatch_first4": true
+        }
+      }
+    },
+    "johnny": {
+      "variants": {
+        "jhon": {
+          "frequency": 1,
+          "edit_distance": 3,
+          "low_similarity": true,
+          "mismatch_first4": true
+        },
+        "johm": {
+          "frequency": 1,
+          "edit_distance": 3,
+          "low_similarity": true,
+          "mismatch_first4": true
+        }
+      }
+    }
+  },
+  "last_name": {
+    "smyth": {
+      "variants": {
+        "smith": {
+          "frequency": 1,
+          "edit_distance": 1,
+          "low_similarity": false,
+          "mismatch_first4": true
+        },
+        "smoth": {
+          "frequency": 1,
+          "edit_distance": 1,
+          "low_similarity": false,
+          "mismatch_first4": true
+        }
+      }
+    },
+    "smith": {
+      "variants": {
+        "smih": {
+          "frequency": 1,
+          "edit_distance": 1,
+          "low_similarity": false,
+          "mismatch_first4": true
+        },
+        "smiht": {
+          "frequency": 1,
+          "edit_distance": 2,
+          "low_similarity": false,
+          "mismatch_first4": true
+        }
+      }
+    }
+  },
+  "sex": {
+    "m": {
+      "variants": {
+        "M": {
+          "frequency": 1
+        },
+        "Male": {
+          "frequency": 1
+        }
+      }
+    },
+    "Female": {
+      "variants": {
+        "F": {
+          "frequency": 1
+        },
+        "f": {
+          "frequency": 1
+        }
+      }
+    }
+  },
+  "dob": {
+    "1985/06/15": {
+      "variants": {
+        "1985-06-15": {
+          "frequency": 1,
+          "edit_distance": 2
+        },
+        "15-06-1985": {
+          "frequency": 1,
+          "edit_distance": 6
+        }
+      }
+    },
+    "19850615": {
+      "variants": {
+        "1985-06-16": {
+          "frequency": 1,
+          "edit_distance": 3
+        },
+        "1985-6-15": {
+          "frequency": 1,
+          "edit_distance": 2
+        }
+      }
+    }
+  },
+  "address": {
+    "124 Main St": {
+      "variants": {
+        "123 Main St": {
+          "frequency": 1
+        },
+        "123 Main Street": {
+          "frequency": 1
+        }
+      }
+    },
+    "123 Main St, Apt 1": {
+      "variants": {
+        "123 Main St.": {
+          "frequency": 1
+        },
+        "123 Main St Apt1": {
+          "frequency": 1
+        }
+      }
+    }
+  },
+  "postcode": {
+    "SW1A1A": {
+      "variants": {
+        "SW1A1AA": {
+          "frequency": 1,
+          "edit_distance": 1
+        },
+        "SW1A 1AA": {
+          "frequency": 1,
+          "edit_distance": 2
+        }
+      }
+    },
+    "SW1A1AA": {
+      "variants": {
+        "SW1A1AB": {
+          "frequency": 1,
+          "edit_distance": 1
+        },
+        "SW1A1BA": {
+          "frequency": 1,
+          "edit_distance": 1
+        }
+      }
+    }
+  },
+  "telephone": {
+    "0207946000": {
+      "variants": {
+        "02079460000": {
+          "frequency": 1
+        },
+        "+442079460000": {
+          "frequency": 1
+        },
+        "2079460000": {
+          "frequency": 1
+        },
+        "+44 20 79460000": {
+          "frequency": 1
+        }
+      }
+    }
+  },
+  "email": {
+    "johnsmith@example.com": {
+      "variants": {
+        "john.smith@exmaple.com": {
+          "frequency": 1
+        },
+        "john.smith@example.co.uk": {
+          "frequency": 1
+        }
+      }
+    },
+    "john.smith@example.com": {
+      "variants": {
+        "john.smit@example.com": {
+          "frequency": 1
+        },
+        "john.smith@example.org": {
+          "frequency": 1
+        }
+      }
+    }
+  }
+}
