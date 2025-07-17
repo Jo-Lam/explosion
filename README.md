@@ -1,6 +1,6 @@
 # Profile Exploded Identifiers
 
-This repository contains **`profile_explode.py`**, a high‑performance script for profiling and identifying "exploded" variants of key personal identifiers in large datasets.
+This repository contains **`profile_exploded.py`**, a high‑performance script for profiling and identifying "exploded" variants of key personal identifiers in large datasets.
 
 ## Overview
 
