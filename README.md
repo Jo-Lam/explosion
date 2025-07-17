@@ -4,10 +4,10 @@ This repository contains **`profile_exploded.py`**, a high‑performance script 
 
 ## Overview
 
-Large datasets often contain natural variations and errors ("explosions") in fields such as names, dates, postcodes, and more. Understanding these variations helps:
+Large datasets often contain natural variations and historical values in fields such as names, dates, postcodes, and more. Understanding these variations helps:
 
 * **Characterize** the distribution of real‑world data inconsistencies (metadata.json)
-* **Drive deduplication** by focusing on truly distinct variants (explosions.json)
+* **Drive deduplication** by focusing on truly distinct variants (explosions.json) - to minimise combinations of historical identifiers
 
 ## Context
 
