@@ -108,6 +108,55 @@ A mapping of each record **ID** to the list of `(field, variant)` pairs deemed w
 * Direct input to our deduplication pipeline.
 * Only explode on fields/values that represent big discrepancies not captured by string comparisons.
 
+## Saving Exploded Variatns to Parquet
+
+Convert json to dataframe, and write to parquet
+
+```python
+import json
+import pandas as pd
+import itertools
+
+# 1) Load the explosions JSON
+with open("explosions_by_id.json", "r") as f:
+    explosions = json.load(f)
+
+# 2) Build a long DataFrame
+records = []
+for rec_id, variants in explosions.items():
+    for field, variant in variants:
+        records.append({"id": int(rec_id), "field": field, "variant": variant})
+
+df_long = pd.DataFrame(records)
+
+# 3) Group by id and field
+grouped = (
+    df_long
+    .groupby(["id", "field"])['variant']
+    .unique()
+    .unstack(fill_value=[])
+)
+
+# 4) Prepare all fields (matches your profile_explode.py --fields list)
+all_fields = list(grouped.columns)
+
+# 5) Generate all combinations per ID, fallback to reference if none exploded
+#    You’ll need `reference_by_id` from your script in scope
+rows = []
+for rec_id, row in grouped.iterrows():
+    for combo in itertools.product(*[row[f] if len(row[f])>0 else [reference_by_id[f][rec_id]] for f in all_fields]):
+        out = {"id": rec_id}
+        out.update(dict(zip(all_fields, combo)))
+        rows.append(out)
+
+df_wide = pd.DataFrame(rows)
+
+# 6) Write to Parquet
+output_path = "exploded_combinations.parquet"
+df_wide.to_parquet(output_path, index=False)
+print(f"✅ Wrote {len(df_wide)} rows to {output_path}")
+```
+
 ## Next Steps
 
 * **Adjust thresholds**: Modify the Jaro–Winkler cutoff or add additional rules in `profile_explode.py`.
