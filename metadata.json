@@ -1,15 +1,19 @@
 {
   "first_name": {
     "jahn": {
+      "reference_count": 1,
+      "word_length": 4,
       "variants": {
         "john": {
           "frequency": 1,
+          "length_variant": 4,
           "edit_distance": 1,
           "low_similarity": true,
           "mismatch_first4": true
         },
         "jon": {
           "frequency": 1,
+          "length_variant": 3,
           "edit_distance": 2,
           "low_similarity": true,
           "mismatch_first4": true
@@ -17,15 +21,19 @@
       }
     },
     "johnny": {
+      "reference_count": 1,
+      "word_length": 6,
       "variants": {
         "jhon": {
           "frequency": 1,
+          "length_variant": 4,
           "edit_distance": 3,
           "low_similarity": true,
           "mismatch_first4": true
         },
         "johm": {
           "frequency": 1,
+          "length_variant": 4,
           "edit_distance": 3,
           "low_similarity": true,
           "mismatch_first4": true
@@ -35,15 +43,19 @@
   },
   "last_name": {
     "smyth": {
+      "reference_count": 1,
+      "word_length": 5,
       "variants": {
         "smith": {
           "frequency": 1,
+          "length_variant": 5,
           "edit_distance": 1,
           "low_similarity": false,
           "mismatch_first4": true
         },
         "smoth": {
           "frequency": 1,
+          "length_variant": 5,
           "edit_distance": 1,
           "low_similarity": false,
           "mismatch_first4": true
@@ -51,15 +63,19 @@
       }
     },
     "smith": {
+      "reference_count": 1,
+      "word_length": 5,
       "variants": {
         "smih": {
           "frequency": 1,
+          "length_variant": 4,
           "edit_distance": 1,
           "low_similarity": false,
           "mismatch_first4": true
         },
         "smiht": {
           "frequency": 1,
+          "length_variant": 5,
           "edit_distance": 2,
           "low_similarity": false,
           "mismatch_first4": true
@@ -69,95 +85,119 @@
   },
   "sex": {
     "m": {
+      "reference_count": 2,
+      "word_length": 1,
       "variants": {
-        "M": {
-          "frequency": 1
-        },
-        "Male": {
-          "frequency": 1
+        "male": {
+          "frequency": 1,
+          "length_variant": 4
         }
       }
     },
-    "Female": {
+    "female": {
+      "reference_count": 1,
+      "word_length": 6,
       "variants": {
-        "F": {
-          "frequency": 1
-        },
         "f": {
-          "frequency": 1
+          "frequency": 2,
+          "length_variant": 1
         }
       }
     }
   },
   "dob": {
     "1985/06/15": {
+      "reference_count": 1,
+      "word_length": 10,
       "variants": {
         "1985-06-15": {
           "frequency": 1,
-          "edit_distance": 2
+          "length_variant": 10,
+          "exploded": false
         },
         "15-06-1985": {
           "frequency": 1,
-          "edit_distance": 6
+          "length_variant": 10,
+          "exploded": false
         }
       }
     },
     "19850615": {
+      "reference_count": 1,
+      "word_length": 8,
       "variants": {
         "1985-06-16": {
           "frequency": 1,
-          "edit_distance": 3
+          "length_variant": 10,
+          "exploded": true
         },
         "1985-6-15": {
           "frequency": 1,
-          "edit_distance": 2
+          "length_variant": 9,
+          "exploded": false
         }
       }
     }
   },
   "address": {
-    "124 Main St": {
+    "124 main st": {
+      "reference_count": 1,
+      "word_length": 11,
       "variants": {
-        "123 Main St": {
-          "frequency": 1
+        "123 main st": {
+          "frequency": 1,
+          "length_variant": 11
         },
-        "123 Main Street": {
-          "frequency": 1
+        "123 main street": {
+          "frequency": 1,
+          "length_variant": 15
         }
       }
     },
-    "123 Main St, Apt 1": {
+    "123 main st, apt 1": {
+      "reference_count": 1,
+      "word_length": 18,
       "variants": {
-        "123 Main St.": {
-          "frequency": 1
+        "123 main st.": {
+          "frequency": 1,
+          "length_variant": 12
         },
-        "123 Main St Apt1": {
-          "frequency": 1
+        "123 main st apt1": {
+          "frequency": 1,
+          "length_variant": 16
         }
       }
     }
   },
   "postcode": {
-    "SW1A1A": {
+    "sw1a1a": {
+      "reference_count": 1,
+      "word_length": 6,
       "variants": {
-        "SW1A1AA": {
+        "sw1a1aa": {
           "frequency": 1,
+          "length_variant": 7,
           "edit_distance": 1
         },
-        "SW1A 1AA": {
+        "sw1a 1aa": {
           "frequency": 1,
+          "length_variant": 8,
           "edit_distance": 2
         }
       }
     },
-    "SW1A1AA": {
+    "sw1a1aa": {
+      "reference_count": 1,
+      "word_length": 7,
       "variants": {
-        "SW1A1AB": {
+        "sw1a1ab": {
           "frequency": 1,
+          "length_variant": 7,
           "edit_distance": 1
         },
-        "SW1A1BA": {
+        "sw1a1ba": {
           "frequency": 1,
+          "length_variant": 7,
           "edit_distance": 1
         }
       }
@@ -165,40 +205,46 @@
   },
   "telephone": {
     "0207946000": {
+      "reference_count": 1,
+      "word_length": 10,
       "variants": {
-        "02079460000": {
-          "frequency": 1
-        },
-        "+442079460000": {
-          "frequency": 1
-        },
         "2079460000": {
-          "frequency": 1
+          "frequency": 1,
+          "length_variant": 10
         },
         "+44 20 79460000": {
-          "frequency": 1
+          "frequency": 1,
+          "length_variant": 15
         }
       }
     }
   },
   "email": {
     "johnsmith@example.com": {
+      "reference_count": 1,
+      "word_length": 21,
       "variants": {
         "john.smith@exmaple.com": {
-          "frequency": 1
+          "frequency": 1,
+          "length_variant": 22
         },
         "john.smith@example.co.uk": {
-          "frequency": 1
+          "frequency": 1,
+          "length_variant": 24
         }
       }
     },
     "john.smith@example.com": {
+      "reference_count": 1,
+      "word_length": 22,
       "variants": {
         "john.smit@example.com": {
-          "frequency": 1
+          "frequency": 1,
+          "length_variant": 21
         },
         "john.smith@example.org": {
-          "frequency": 1
+          "frequency": 1,
+          "length_variant": 22
         }
       }
     }
