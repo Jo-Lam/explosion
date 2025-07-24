@@ -5,7 +5,6 @@ from collections import Counter, defaultdict
 import pandas as pd
 from dateutil.parser import parse
 
-
 # Local Levenshtein implementation
 def levenshtein(a: str, b: str) -> int:
     a, b = (a or ""), (b or "")
@@ -96,12 +95,18 @@ for fld, mapping in reference_by_id.items():
     for rid, ref_val in mapping.items():
         # now sub is just the rows for this id
         sub = df[df['id'] == rid]
+
+        # count reference value frequency
+        ref_count = int((sub[fld] == ref_val).sum())
+        word_len = len(ref_val)
+
         # get variants (excluding the reference itself)
         variants = sub[fld][sub[fld] != ref_val]
         freq = Counter(variants)
         var_meta = {}
         for var, count in freq.items():
             info = {'frequency': count}
+            info['length_variant'] = len(var)
             if fld in ('first_name','last_name'):
                 info.update({
                     'edit_distance':    levenshtein(ref_val, var),
@@ -115,7 +120,11 @@ for fld, mapping in reference_by_id.items():
                     info['edit_distance'] = levenshtein(ref_val, var)
             var_meta[var] = info
 
-        metadata[fld][ref_val] = {'variants': var_meta}
+        metadata[fld][ref_val] = {
+            'reference_count': ref_count,
+            'word_length': len(ref_val),
+            'variants': var_meta}
+        # add the reference itself}
 
 # write metadata.json
 with open("metadata.json","w",encoding="utf-8") as f:
