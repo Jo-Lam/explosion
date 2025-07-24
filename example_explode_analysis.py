@@ -1,8 +1,9 @@
 import itertools
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 import pandas as pd
+from dateutil.parser import parse
 
 
 # Local Levenshtein implementation
@@ -46,8 +47,9 @@ def jaro_winkler(s1: str, s2: str, p: float = 0.1) -> float:
     prefix=min(prefix,4)
     return j + prefix*p*(1-j)
 
-from dateutil.parser import parse
 
+def mismatch_positions(a: str, b: str) -> list[int]:
+    return [i for i,(ca,cb) in enumerate(zip(a,b)) if ca!=cb]
 
 def date_exploded(ref: str, var: str) -> bool:
     try:
@@ -85,6 +87,41 @@ reference_by_id = {
            .to_dict()
     for fld in df.columns if fld!='id'
 }
+
+# —— 2) Build metadata —— #
+metadata = {}
+for fld, mapping in reference_by_id.items():
+    metadata[fld] = {}
+    # mapping is { id: reference_value }
+    for rid, ref_val in mapping.items():
+        # now sub is just the rows for this id
+        sub = df[df['id'] == rid]
+        # get variants (excluding the reference itself)
+        variants = sub[fld][sub[fld] != ref_val]
+        freq = Counter(variants)
+        var_meta = {}
+        for var, count in freq.items():
+            info = {'frequency': count}
+            if fld in ('first_name','last_name'):
+                info.update({
+                    'edit_distance':    levenshtein(ref_val, var),
+                    'low_similarity':   jaro_winkler(ref_val, var) < 0.88,
+                    'mismatch_first4':  any(p < 4 for p in mismatch_positions(ref_val, var))
+                })
+            elif fld in ('dob','postcode'):
+                if fld == 'dob':
+                    info['exploded'] = date_exploded(ref_val, var)
+                else:
+                    info['edit_distance'] = levenshtein(ref_val, var)
+            var_meta[var] = info
+
+        metadata[fld][ref_val] = {'variants': var_meta}
+
+# write metadata.json
+with open("metadata.json","w",encoding="utf-8") as f:
+    json.dump(metadata, f, indent=2)
+print("✅ metadata.json written")
+
 
 # 2) identify explosions per id
 explosions_by_id = defaultdict(list)
