@@ -11,7 +11,8 @@ Large datasets often contain natural variations and historical values in fields 
 
 ## Context
 
-- to run in > 100M of records, creating potentially x 20 times size of data.
+- If we were to run full explosion, say in > 100M of records, we will be creating potentially x 10 times size of data.
+- this script is a suggested solution to reduce this comparison pair & save computation.
 
 
 ## Files
